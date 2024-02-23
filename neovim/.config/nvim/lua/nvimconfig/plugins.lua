@@ -24,10 +24,8 @@ require("lazy").setup({
 	require("plugin.treesitter"),
 
 	-- HARPOOOOOOOOOON 2.0!
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		dependencies = { "nvim-lua/plenary.nvim" }
-	},
+	require("plugin.harpoon"),
+	
 
+	"mbbill/undotree"
 })
