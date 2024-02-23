@@ -14,15 +14,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	-- Colorschemes
+	"folke/tokyonight.nvim",
+	"catppuccin/nvim",
+	"rebelot/kanagawa.nvim",
+	"bluz71/vim-nightfly-colors",
+
+	require("plugin.telescope"),
+	require("plugin.treesitter"),
 
 	-- HARPOOOOOOOOOON 2.0!
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" }
-	}
-	"folke/tokyonight.nvim",
-	"catppuccin/nvim",
-	"rebelot/kanagawa.nvim",
-	"bluz71/vim-nightfly-colors",
+	},
+
 })
