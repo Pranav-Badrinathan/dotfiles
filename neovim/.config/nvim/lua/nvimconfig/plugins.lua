@@ -25,7 +25,5 @@ require("lazy").setup({
 
 	-- HARPOOOOOOOOOON 2.0!
 	require("plugin.harpoon"),
-	
-
-	"mbbill/undotree"
+	require("plugin.undotree"),
 })

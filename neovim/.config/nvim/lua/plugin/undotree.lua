@@ -1,2 +1,6 @@
--- Set vim persistent undo.
-vim.opt.undodir = vim.fn.stdpath("config") .. "/.undo"
+return {
+	"mbbill/undotree",
+	keys = {
+		{ "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle undotree." }
+	}
+}
