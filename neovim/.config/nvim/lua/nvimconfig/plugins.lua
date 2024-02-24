@@ -20,10 +20,14 @@ require("lazy").setup({
 	"rebelot/kanagawa.nvim",
 	"bluz71/vim-nightfly-colors",
 
+	"j-hui/fidget.nvim",
+
 	require("plugin.telescope"),
 	require("plugin.treesitter"),
 
 	-- HARPOOOOOOOOOON 2.0!
 	require("plugin.harpoon"),
 	require("plugin.undotree"),
+
+	require("plugin.lsp"),
 })
