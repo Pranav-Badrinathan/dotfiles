@@ -1,4 +1,5 @@
 return {
+	-- Perhaps eventually remove lsp-zero?
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
@@ -29,22 +30,29 @@ return {
 			{ "hrsh7th/cmp-path" },
 		},
 		config = function()
-			-- Here is where you configure the autocompletion settings.
 			local lsp_zero = require("lsp-zero")
 			lsp_zero.extend_cmp()
 
 			-- And you can configure cmp even more, if you want to.
 			local cmp = require("cmp")
+
+			-----------------------------------------------------------------
+			-- The only reason I am using lsp-zero: the predefined cmp_action
+			-- functions. Perhaps write them locally and remove this dep.
+			-- some day.
+			-----------------------------------------------------------------
 			local cmp_action = lsp_zero.cmp_action()
 
 			cmp.setup({
 				formatting = lsp_zero.cmp_format(),
 				mapping = cmp.mapping.preset.insert({
-					["<C-Space>"] = cmp.mapping.complete(),
+					["<C-Space>"] = cmp_action.toggle_completion(),
 					["<C-u>"] = cmp.mapping.scroll_docs(-4),
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
-					["<C-f>"] = cmp_action.luasnip_jump_forward(),
-					["<C-b>"] = cmp_action.luasnip_jump_backward(),
+					["<C-k>"] = cmp_action.tab_complete(),
+					["<C-j>"] = cmp_action.select_prev_or_fallback(),
+					["<C-l>"] = cmp_action.luasnip_jump_forward(),
+					["<C-h>"] = cmp_action.luasnip_jump_backward(),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
@@ -71,12 +79,15 @@ return {
 			local lsp_zero = require("lsp-zero")
 			lsp_zero.extend_lspconfig()
 
-			--- if you want to know more about lsp-zero and mason.nvim
-			--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-			lsp_zero.on_attach(function(client, bufnr)
+			-- If removing lsp-zero, replace this with an autocmd for event
+			-- "LspAttach"
+			lsp_zero.on_attach(function(_, bufnr)
 				-- see :help lsp-zero-keybindings
-				-- to learn the available actions
 				lsp_zero.default_keymaps({ buffer = bufnr })
+
+				-- Default keybindings are good, but need one for code action.
+				vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action,
+					{ buffer = bufnr })
 			end)
 
 			require("mason-lspconfig").setup({
@@ -84,12 +95,22 @@ return {
 				handlers = {
 					lsp_zero.default_setup,
 					lua_ls = function()
-						-- (Optional) Configure lua language server for neovim
+						-- Sets up lua_ls for nvim.
+						-- Might need to change if we actually start using
+						-- Lua itself outside nvim...
 						local lua_opts = lsp_zero.nvim_lua_ls()
 						require("lspconfig").lua_ls.setup(lua_opts)
 					end,
 				}
 			})
 		end
+	},
+
+	-- More LSP related pludins. Can be in it's own file but oh well.
+	-- Rust.
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^4', -- Recommended
+		ft = { 'rust' },
 	}
 }
