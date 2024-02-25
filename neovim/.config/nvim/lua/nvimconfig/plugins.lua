@@ -29,5 +29,7 @@ require("lazy").setup({
 	require("plugin.harpoon"),
 	require("plugin.undotree"),
 
+	-- LSP and Autocomplete. Lazy loading with lsp-zero.
 	require("plugin.lsp"),
+	require("plugin.trouble")
 })
