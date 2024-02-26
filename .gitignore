@@ -1,1 +1,4 @@
 lazy-lock.json
+
+# Don't want nvim undo history to be committed.
+.undo/
