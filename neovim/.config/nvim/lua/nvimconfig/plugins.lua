@@ -20,7 +20,15 @@ require("lazy").setup({
 	"rebelot/kanagawa.nvim",
 	"bluz71/vim-nightfly-colors",
 
+	{ "lewis6991/gitsigns.nvim", config = true },
 	"j-hui/fidget.nvim",
+
+	{ 
+		"terrortylor/nvim-comment", config = function()
+			require("nvim_comment").setup()
+		end
+	},
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
 	require("plugin.telescope"),
 	require("plugin.treesitter"),
@@ -31,5 +39,7 @@ require("lazy").setup({
 
 	-- LSP and Autocomplete. Lazy loading with lsp-zero.
 	require("plugin.lsp"),
-	require("plugin.trouble")
+	require("plugin.trouble"),
+
+	require("plugin.autoclose"),
 })
