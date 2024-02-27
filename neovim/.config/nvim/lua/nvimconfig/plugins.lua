@@ -20,15 +20,17 @@ require("lazy").setup({
 	"rebelot/kanagawa.nvim",
 	"bluz71/vim-nightfly-colors",
 
-	{ "lewis6991/gitsigns.nvim", config = true },
+	{ "lewis6991/gitsigns.nvim", config = true, event = "BufRead" },
 	{ "j-hui/fidget.nvim", config = true },
 
 	{
 		"terrortylor/nvim-comment", config = function()
 			require("nvim_comment").setup()
-		end
+		end,
+		event = "BufRead"
 	},
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",
+	opts = {}, event = "BufRead"},
 
 	require("plugin.telescope"),
 	require("plugin.treesitter"),

@@ -1,6 +1,7 @@
 return {
 	"m4xshen/autoclose.nvim",
 	config = true,
+	event = { "InsertEnter", "CmdlineEnter" },
 	opts = {
 		options = {
 			-- If next character satisfies the touch regex, don't autoclose.
