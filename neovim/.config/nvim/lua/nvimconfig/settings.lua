@@ -10,4 +10,4 @@ opt.undofile = true
 
 opt.relativenumber = true
 
--- opt.signcolumn = "auto:1"
+opt.signcolumn = "yes:1"
