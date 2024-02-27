@@ -1,6 +1,6 @@
-return { 
-	"m4xshen/autoclose.nvim", 
-	config = true, 
+return {
+	"m4xshen/autoclose.nvim",
+	config = true,
 	opts = {
 		options = {
 			-- If next character satisfies the touch regex, don't autoclose.

@@ -6,14 +6,14 @@ return {
 	keys = {
 		{
 			"<leader>hh",
-			function() 
+			function()
 				require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
 			end,
 			desc = "Toggle harpoon ui quick menu."
 		},
 		{
 			"<leader>hm",
-			function() 
+			function()
 				local list = require("harpoon"):list()
 
 				local buf_name = vim.fn.expand("%")

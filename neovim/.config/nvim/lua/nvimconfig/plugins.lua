@@ -21,9 +21,9 @@ require("lazy").setup({
 	"bluz71/vim-nightfly-colors",
 
 	{ "lewis6991/gitsigns.nvim", config = true },
-	"j-hui/fidget.nvim",
+	{ "j-hui/fidget.nvim", config = true },
 
-	{ 
+	{
 		"terrortylor/nvim-comment", config = function()
 			require("nvim_comment").setup()
 		end
