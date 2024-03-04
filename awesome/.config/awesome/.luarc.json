@@ -1,0 +1,31 @@
+{
+	"diagnostics": {
+		"enable": true,
+		"libraryFiles": true,
+		"globals": [
+			"awesome",
+			"client",
+			"dbus",
+			"button",
+			"screen",
+			"mouse",
+			"root"
+		],
+		"disable": [
+			"lowercase-global"
+		]
+	},
+	"runtime": {
+		"version": "Lua 5.1",
+		"pathStrict": false,
+		"path": [
+			"/usr/share/awesome/lib/?/?.lua",
+			"/usr/share/awesome/lib/?/init.lua"
+		]
+	},
+	"workspace.library": [
+		"runtime/lua",
+		"/usr/share/awesome/lib"
+	],
+	"telemetry.enable": false,
+}
