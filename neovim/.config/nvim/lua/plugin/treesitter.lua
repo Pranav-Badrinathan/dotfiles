@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("nvim-treesitter.configs").setup {
 			-- query is Treesitter's own query lang.
-			ensure_installed = { "c", "rust", "lua", "vim", "vimdoc", "query" },
+			ensure_installed = { "lua", "vim", "vimdoc", "query" },
 
 			-- Install parsers synchronously (only applied to ensure_installed)
 			sync_install = false,
