@@ -9,7 +9,8 @@
 			"button",
 			"screen",
 			"mouse",
-			"root"
+			"root",
+			"tag"
 		],
 		"disable": [
 			"lowercase-global"

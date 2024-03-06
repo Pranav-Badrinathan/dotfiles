@@ -4,6 +4,7 @@
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
+local rnotif = require("ruled.notification")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
@@ -26,9 +27,9 @@ theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(3)
 theme.border_width  = dpi(2)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_color_normal = "#000000"
+theme.border_color_active = "#535d6c"
+theme.border_color_marked = "#91231c"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -93,7 +94,7 @@ theme.titlebar_floating_button_normal_active = themes_path.."default/titlebar/fl
 theme.titlebar_floating_button_focus_active  = themes_path.."default/titlebar/floating_focus_active.png"
 
 theme.titlebar_maximized_button_normal_inactive = themes_path.."default/titlebar/maximized_normal_inactive.png"
-theme.titlebar_maximized_button_focus_inactive	= themes_path.."default/titlebar/maximized_focus_inactive.png"
+theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
@@ -107,7 +108,7 @@ theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
 theme.layout_max = themes_path.."default/layouts/maxw.png"
 theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
 theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
-theme.layout_tileleft	= themes_path.."default/layouts/tileleftw.png"
+theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
 theme.layout_tile = themes_path.."default/layouts/tilew.png"
 theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
 theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
@@ -125,5 +126,13 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
+
+-- Set different colors for urgent notifications.
+rnotif.connect_signal('request::rules', function()
+    rnotif.append_rule {
+        rule       = { urgency = 'critical' },
+        properties = { bg = '#ff0000', fg = '#ffffff' }
+    }
+end)
 
 return theme
