@@ -245,6 +245,17 @@ awful.keyboard.append_global_keybindings({
 		end,
 		{ description = "Decrease the volume.", group = "client" }
 	),
+	awful.key(
+		{ modkey, "Shift" }, "f",
+		function()
+			if awful.layout.get(awful.screen.focused()) == awful.layout.suit.floating then
+				awful.layout.set(awful.layout.layouts[1])
+			else
+				awful.layout.set(awful.layout.suit.floating)
+			end
+		end,
+		{ description = "Toggles between floating and tiling mode" }
+	),
 })
 
 -- General Awesome keys
