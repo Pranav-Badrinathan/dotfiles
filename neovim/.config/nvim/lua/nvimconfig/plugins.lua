@@ -13,6 +13,19 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.rustaceanvim = {
+	server = {
+		settings = {
+			['rust-analyzer'] = {
+				checkOnSave = {
+					command = "clippy",
+				}
+			}
+		},
+		cmd = { "mason" },
+	}
+}
+
 require("lazy").setup({
 	-- Colorschemes
 	"folke/tokyonight.nvim",
