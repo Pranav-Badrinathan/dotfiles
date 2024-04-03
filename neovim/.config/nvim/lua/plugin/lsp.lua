@@ -55,7 +55,7 @@ return {
 					["<S-TAB>"] = cmp_action.select_prev_or_fallback(),
 					["<C-l>"] = cmp_action.luasnip_jump_forward(),
 					["<C-h>"] = cmp_action.luasnip_jump_backward(),
-					["<CR>"] = cmp.mapping.confirm({select = false}),
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
@@ -90,6 +90,8 @@ return {
 
 				-- Default keybindings are good, but need one for code action.
 				vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action,
+					{ buffer = bufnr })
+				vim.keymap.set("n", "<leader>F", vim.lsp.buf.format,
 					{ buffer = bufnr })
 			end)
 
