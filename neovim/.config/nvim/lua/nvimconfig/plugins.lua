@@ -22,7 +22,13 @@ vim.g.rustaceanvim = {
 				}
 			}
 		},
-		cmd = { "mason" },
+		cmd = function()
+			local data_path = vim.fn.stdpath("data")
+			local dir = data_path .. "/mason/bin/"
+			local ra_cmd = vim.fn.glob(dir .. "rust-analyzer*")
+
+			return { ra_cmd }
+		end,
 	}
 }
 
