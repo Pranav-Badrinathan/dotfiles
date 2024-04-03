@@ -18,7 +18,7 @@ return {
 
 				local buf_name = vim.fn.expand("%")
 				if list:get_by_display(buf_name) == nil then
-					list:append()
+					list:add()
 				else
 					list:remove()
 				end

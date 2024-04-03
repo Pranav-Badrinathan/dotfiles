@@ -13,7 +13,7 @@ opt.undofile = true
 opt.relativenumber = true
 opt.scrolloff = 6
 opt.signcolumn = "yes:1"
-opt.colorcolumn = {81, 121}
+opt.colorcolumn = {81, 101}
 
 opt.wrap = false
 opt.incsearch = true
