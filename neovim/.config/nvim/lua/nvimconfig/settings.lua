@@ -19,3 +19,4 @@ opt.wrap = false
 opt.incsearch = true
 opt.updatetime = 100
 opt.splitbelow = true
+opt.showmode = false

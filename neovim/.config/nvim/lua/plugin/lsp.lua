@@ -51,11 +51,12 @@ return {
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
 					["<C-j>"] = cmp_action.tab_complete(),
 					["<C-k>"] = cmp_action.select_prev_or_fallback(),
-					["<TAB>"] = cmp_action.tab_complete(),
-					["<S-TAB>"] = cmp_action.select_prev_or_fallback(),
+					-- Practice using <C-j/k> for selection, and <C-y> confirm.
+					-- ["<TAB>"] = cmp_action.tab_complete(),
+					-- ["<S-TAB>"] = cmp_action.select_prev_or_fallback(),
 					["<C-l>"] = cmp_action.luasnip_jump_forward(),
 					["<C-h>"] = cmp_action.luasnip_jump_backward(),
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					-- ["<CR>"] = cmp.mapping.confirm({ select = false }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
