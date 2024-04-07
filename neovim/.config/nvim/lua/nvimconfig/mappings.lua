@@ -6,8 +6,8 @@ vim.keymap.set("n", "<MiddleMouse>", "i<MiddleMouse><Esc>")
 
 vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<C-Up>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<C-Down>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<C-Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<C-Up>", ":m '<-2<CR>gv=gv")
 
 -- Same as 'J', but cursor stays in place. See ":help J".
 vim.keymap.set("n", "J", "mzJ`z")
