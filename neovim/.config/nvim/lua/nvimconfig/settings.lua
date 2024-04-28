@@ -20,3 +20,5 @@ opt.incsearch = true
 opt.updatetime = 100
 opt.splitbelow = true
 opt.showmode = false
+
+vim.filetype.add({ extension = { h = "c" } })
