@@ -112,6 +112,16 @@ return {
 					rust_analyzer = function()
 						return true
 					end,
+
+					-- Clangd specific keymaps.
+					clangd = function()
+						require("lspconfig").clangd.setup({
+							on_attach = function()
+								vim.keymap.set({ 'n', 'v' }, "<leader>s", vim.cmd.ClangdSwitchSourceHeader,
+									{ buffer = true })
+							end
+						})
+					end
 				}
 			})
 		end
