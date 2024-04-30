@@ -17,7 +17,7 @@ return {
 				local list = require("harpoon"):list()
 
 				local buf_name = vim.fn.expand("%")
-				if list:get_by_display(buf_name) == nil then
+				if list:get_by_value(buf_name) == nil then
 					list:add()
 				else
 					list:remove()
