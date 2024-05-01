@@ -62,6 +62,5 @@ require("lazy").setup({
 	require("plugin.lsp"),
 	require("plugin.trouble"),
 
-	require("plugin.autoclose"),
 	require("plugin.lualine")
 })
