@@ -29,15 +29,22 @@ local function BracketExpand()
 	local b_pairs = { ['{'] = '}', ['['] = ']', ['('] = ')' }
 
 	local _, col = unpack(vim.api.nvim_win_get_cursor(0))
-	local prevchar = string.sub(vim.api.nvim_get_current_line(), col, col)
+	local prv_char = string.sub(vim.api.nvim_get_current_line(), col, col)
+	local nxt_char = string.sub(vim.api.nvim_get_current_line(), col+1, col+1)
 
-	if b_pairs[prevchar] ~= nil then
-		print("FOUND PAIR")
-		return "<CR>" .. b_pairs[prevchar] .. "<Esc>O"
+	if b_pairs[prv_char] ~= nil then
+		local ret = "<CR>"
+
+		if b_pairs[prv_char] ~= nxt_char then
+			ret = ret .. b_pairs[prv_char]
+		end
+
+		return ret .. "<Esc>O"
 	end
 
 	return "<CR>"
 end
+
 
 -- Auto-close and indent curly braces for functions.
 vim.keymap.set("i", "<CR>", BracketExpand, {expr=true})
