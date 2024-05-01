@@ -23,3 +23,22 @@ vim.keymap.set("v", "<leader>y", "\"+y")
 -- Delete into void register.
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
+
+
+local function BracketExpand()
+	local b_pairs = { ['{'] = '}', ['['] = ']', ['('] = ')' }
+
+	local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+	local prevchar = string.sub(vim.api.nvim_get_current_line(), col, col)
+
+	if b_pairs[prevchar] ~= nil then
+		print("FOUND PAIR")
+		return "<CR>" .. b_pairs[prevchar] .. "<Esc>O"
+	end
+
+	return "<CR>"
+end
+
+-- Auto-close and indent curly braces for functions.
+vim.keymap.set("i", "<CR>", BracketExpand, {expr=true})
+
