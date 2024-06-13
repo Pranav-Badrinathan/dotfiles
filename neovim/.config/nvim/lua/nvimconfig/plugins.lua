@@ -42,12 +42,6 @@ require("lazy").setup({
 	{ "lewis6991/gitsigns.nvim", config = true, event = "BufRead" },
 	{ "j-hui/fidget.nvim", config = true },
 
-	{
-		"terrortylor/nvim-comment", config = function()
-			require("nvim_comment").setup()
-		end,
-		event = "BufRead"
-	},
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl",
 	opts = {}, event = "BufRead"},
 
