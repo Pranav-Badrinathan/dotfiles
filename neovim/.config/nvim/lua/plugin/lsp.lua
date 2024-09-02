@@ -28,6 +28,7 @@ return {
 			{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 			{ "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-path" },
+			{ "micangl/cmp-vimtex" },
 		},
 		config = function()
 			local lsp_zero = require("lsp-zero")
@@ -64,6 +65,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "path" },
+					{ name = "vimtex" },
 				})
 			})
 		end
