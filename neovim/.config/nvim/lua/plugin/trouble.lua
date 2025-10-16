@@ -1,8 +1,9 @@
 return {
 	"folke/trouble.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	cmd = { "Trouble", "TroubleToggle" },
+	cmd = "Trouble",
+	opts = {},
 	keys = {
-		{ "<leader>T", vim.cmd.TroubleToggle, desc = "Toggle Trouble window" }
+		{ "<leader>T", "<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>", desc = "Toggle Trouble window" }
 	}
 }
